@@ -17,7 +17,7 @@ function setup() {
 function draw() {
   background(255);
     fill(0);
-    text(snake.score, 350, 10);
+    text("score: " + snake.score, 330, 10);
     frameRate(snake.speed);
     snake.display();
     food.gen();
@@ -138,13 +138,23 @@ function Snake() {
     
     this.is_dead = function () {
         if (this.head.x > width ||
-                this.head.x < 0 ||
-                this.head.y > height ||
-                this.head.y < 0) {
-            textAlign(CENTER);
-            text("你完犊子了", width * 0.5, height * 0.5);
-            noLoop();
-        }
+                    this.head.x < 0 ||
+          this.head.y > height ||
+          this.head.y < 0) {
+        textAlign(CENTER);
+        text("你完犊子了", width * 0.5, height * 0.5);
+        noLoop();
+      }
+            if (this.body.length > 1) {
+                for (var i = 1; i < this.body.length; i ++) {
+                    if (this.head.x == this.body[i].x &&
+                            this.head.y == this.body[i].y) {
+                        textAlign(CENTER);
+                   text("你完犊子了", width * 0.5, height * 0.5);
+                noLoop();
+                    }
+                }
+            }
     }
 }
 
