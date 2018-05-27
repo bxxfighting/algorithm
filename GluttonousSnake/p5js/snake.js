@@ -1,3 +1,5 @@
+// 打开网站: http://alpha.editor.p5js.org/
+// 复制代码，并执行
 var snake;
 var snakeNodeSize = 8;
 var speed = 5;
